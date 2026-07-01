@@ -8,7 +8,7 @@ const Sidebar = () => {
   const items = USER_ROLE === 'company' ? COMPANY_SIDEBAR_ITEMS : INFLUENCER_SIDEBAR_ITEMS;
 
   return (
-    <aside className="w-64 h-screen bg-gray-900 text-gray-300 flex flex-col shadow-2xl transition-all duration-300 flex-shrink-0">
+    <aside className="w-64 h-screen bg-gray-900 text-gray-300 flex flex-col shadow-2xl transition-all duration-300 shrink-0">
       {/* Brand Header */}
       <div className="h-20 flex items-center px-6 border-b border-gray-800">
         <Zap className="text-indigo-500 mr-3" size={28} />
@@ -23,13 +23,12 @@ const Sidebar = () => {
         <ul className="space-y-2">
           {items.map((item) => (
             <li key={item.path}>
-              <NavLink 
-                to={item.path} 
-                className={({ isActive }) => 
-                  `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
-                    isActive 
-                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30' 
-                      : 'hover:bg-gray-800 hover:text-white'
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                    : 'hover:bg-gray-800 hover:text-white'
                   }`
                 }
               >
@@ -44,7 +43,7 @@ const Sidebar = () => {
       {/* Footer / User Profile Placeholder */}
       <div className="p-4 border-t border-gray-800">
         <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-colors cursor-pointer">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold shadow-lg">
+          <div className="w-10 h-10 rounded-full bg-linear-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold shadow-lg">
             {USER_ROLE === 'company' ? 'C' : 'I'}
           </div>
           <div>
