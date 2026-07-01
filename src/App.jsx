@@ -1,20 +1,20 @@
 import { Routes, Route, Outlet } from 'react-router';
+import Sidebar from './components/shared/Sidebar';
+import Dashboard from './pages/Dashboard';
 
 const Layout = () => {
   return (
-    <div>
-      <header>Header</header>
-      <main>
+    <div style={{ display: 'flex', minHeight: '100vh' }}>
+      <Sidebar />
+      <main style={{ flex: 1, padding: '1rem' }}>
         <Outlet />
       </main>
-      <footer>Footer</footer>
     </div>
   );
 };
 
-const Home = () => <div>Home</div>;
+const Home = () => <Dashboard />;
 const Login = () => <div>Login</div>;
-const Dashboard = () => <div>Dashboard</div>;
 const Settings = () => <div>Settings</div>;
 
 const App = () => {
@@ -23,7 +23,6 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
