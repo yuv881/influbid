@@ -1,14 +1,18 @@
 import { Routes, Route, Outlet } from 'react-router';
 import Sidebar from './components/shared/Sidebar';
+import Header from './components/shared/Header';
 import Dashboard from './pages/Dashboard';
 
 const Layout = () => {
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
+    <div className="flex h-screen w-full bg-gray-50 overflow-hidden text-gray-900 font-sans">
       <Sidebar />
-      <main style={{ flex: 1, padding: '1rem' }}>
-        <Outlet />
-      </main>
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Header />
+        <main className="flex-1 overflow-y-auto p-8">
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 };
