@@ -1,6 +1,6 @@
 import { Home, LayoutDashboard, Settings, LogIn } from 'lucide-react';
 
-export const SIDEBAR_ITEMS = [
+export const COMPANY_SIDEBAR_ITEMS = [
     {
         title: 'Home',
         path: '/home',
@@ -11,6 +11,9 @@ export const SIDEBAR_ITEMS = [
         path: '/',
         icon: <LayoutDashboard size={20} />,
     },
+];
+
+export const INFLUENCER_SIDEBAR_ITEMS = [
     {
         title: 'Settings',
         path: '/settings',
