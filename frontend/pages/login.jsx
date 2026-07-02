@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { Zap, Building2, Users, ArrowRight, Lock, Mail, Check } from 'lucide-react';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [role, setRole] = useState('influencer'); // default role
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('user_role')) {
+      navigate('/dashboard', { replace: true });
+    }
+  }, [navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,8 +23,8 @@ const Login = () => {
     setTimeout(() => {
       localStorage.setItem('user_role', role);
       setLoading(false);
-      // Force reload and redirect to home to refresh application state
-      window.location.href = '/';
+      // Force reload and redirect to dashboard to refresh application state
+      window.location.href = '/dashboard';
     }, 800);
   };
 
