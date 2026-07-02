@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex bg-slate-50 font-sans">
+    <div className="min-h-screen w-full flex bg-slate-50 font-sans overflow-y-auto" style={{ height: "100vh", overflowY: "auto" }}>
       {/* Left Column: Visual branding banner */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-slate-950 overflow-hidden select-none">
         {/* Background Gradients */}
