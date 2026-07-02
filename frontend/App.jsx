@@ -3,6 +3,7 @@ import Sidebar from './components/shared/Sidebar';
 import Header from './components/shared/Header';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/login';
+import LandingPage from '../landing_page/LandingPage';
 
 const Layout = () => {
   return (
@@ -55,15 +56,17 @@ const Settings = () => (
 const App = () => {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route element={<ProtectedRoute />}>
-        <Route path="/" element={<Layout />}>
+        <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
-          <Route path="/home" element={<Dashboard />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="home" element={<Dashboard />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Route>
       </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };
