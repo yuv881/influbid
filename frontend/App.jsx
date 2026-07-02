@@ -2,7 +2,7 @@ import { Routes, Route, Outlet, Navigate } from 'react-router';
 import Sidebar from './components/shared/Sidebar';
 import Header from './components/shared/Header';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/login';
+import Login from './pages/auth/login';
 import LandingPage from '../landing_page/LandingPage';
 
 const Layout = () => {
