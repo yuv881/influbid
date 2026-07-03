@@ -53,7 +53,7 @@ export default function Navbar() {
 
 
           <div className="hidden md:flex items-center gap-6">
-            <a href="#signin" className="font-heading text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white tracking-widest transition-colors">
+            <a href="/login" className="font-heading text-xs font-bold text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white tracking-widest transition-colors">
               SIGN IN
             </a>
             <a
@@ -119,7 +119,7 @@ export default function Navbar() {
 
             <hr className="border-brand-border" />
             <a
-              href="#signin"
+              href="/login"
               onClick={() => setIsOpen(false)}
               className="font-heading text-sm font-bold text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white tracking-widest py-2"
             >

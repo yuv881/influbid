@@ -1,4 +1,3 @@
-import React from 'react';
 
 export default function CTA() {
   return (
@@ -27,7 +26,7 @@ export default function CTA() {
             CREATE FREE ACCOUNT
           </a>
           <a
-            href="#signin"
+            href="/login"
             className="bg-brand-dark hover:bg-brand-cardHover text-gray-900 dark:text-white border border-brand-border hover:border-gray-500 px-8 py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full sm:w-auto transform hover:scale-105 active:scale-95"
           >
             SIGN IN
