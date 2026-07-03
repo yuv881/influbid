@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
+import LandingPage from '../landing-page/App.jsx';
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
-  )
+    <LandingPage />
+  );
 }
 
-export default App
+export default App;
