@@ -2,25 +2,27 @@
 
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
-  --color-brand-dark: #080808;
-  --color-brand-card: #121212;
+  --color-brand-dark: var(--bg-dark);
+  --color-brand-card: var(--bg-card);
   --color-brand-orange: #FF4E0D;
   --color-brand-orangeHover: #E03D00;
   --color-brand-teal: #00FA9A;
   --color-brand-tealDark: #0D2E27;
-  --color-brand-border: #1E1E1E;
-  --color-brand-cardHover: #181818;
+  --color-brand-border: var(--border-color);
+  --color-brand-cardHover: var(--card-hover);
 
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
 }
 
 @utility glass-panel {
-  background: rgba(18, 18, 18, 0.8);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
 }
 
 @utility glass-panel-orange {
@@ -36,13 +38,33 @@
 }
 
 body {
-  background-color: #080808;
-  color: #ffffff;
+  --bg-dark: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --card-hover: #f1f5f9;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+
+  background-color: var(--bg-dark);
+  color: #0f172a;
   font-family: 'Inter', sans-serif;
   /* Custom grid pattern background */
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
   overflow-x: hidden;
+}
+
+.dark body {
+  --bg-dark: #080808;
+  --bg-card: #121212;
+  --border-color: #1E1E1E;
+  --card-hover: #181818;
+  --glass-bg: rgba(18, 18, 18, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.05);
+
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 h1, h2, h3, h4, h5, h6 {

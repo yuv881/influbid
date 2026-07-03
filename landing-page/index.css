@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --color-brand-dark: #080808;
   --color-brand-card: #121212;
@@ -36,13 +38,19 @@
 }
 
 body {
-  background-color: #080808;
-  color: #ffffff;
+  background-color: #f8fafc;
+  color: #0f172a;
   font-family: 'Inter', sans-serif;
   /* Custom grid pattern background */
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
   overflow-x: hidden;
+}
+
+.dark body {
+  background-color: #080808;
+  color: #ffffff;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -45,10 +45,10 @@ export default function Features() {
     <section id="features" className="py-20 px-4 max-w-7xl mx-auto border-t border-brand-border/40">
       {/* Title Block */}
       <div className="text-center mb-16">
-        <span className="font-heading text-xs font-bold text-gray-500 tracking-widest uppercase">
+        <span className="font-heading text-xs font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
           PLATFORM FEATURES
         </span>
-        <h2 className="font-heading text-3xl sm:text-5xl font-black text-white mt-1 uppercase tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-5xl font-black text-gray-900 dark:text-white mt-1 uppercase tracking-tight">
           BUILT FOR RESULTS
         </h2>
       </div>
@@ -68,12 +68,12 @@ export default function Features() {
               </div>
 
               {/* Title */}
-              <h3 className="font-heading text-lg font-extrabold text-white tracking-wide">
+              <h3 className="font-heading text-lg font-extrabold text-gray-900 dark:text-white tracking-wide">
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p className="mt-3 text-sm text-gray-400 font-normal leading-relaxed">
+              <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 {feature.description}
               </p>
             </div>

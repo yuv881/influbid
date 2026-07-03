@@ -44,10 +44,10 @@ export default function PopularNiches() {
     <section id="categories" className="py-20 px-4 max-w-7xl mx-auto border-t border-brand-border/40">
       {/* Title block */}
       <div className="mb-12">
-        <span className="font-heading text-xs font-bold text-gray-500 tracking-widest uppercase">
+        <span className="font-heading text-xs font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
           BROWSE BY CATEGORY
         </span>
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white mt-1 uppercase tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-white mt-1 uppercase tracking-tight">
           POPULAR NICHES
         </h2>
       </div>
@@ -74,10 +74,10 @@ export default function PopularNiches() {
 
             {/* Content info overlay */}
             <div className="relative z-10">
-              <h3 className="font-heading text-base font-extrabold text-white tracking-wide group-hover:text-brand-orange transition-colors">
+              <h3 className="font-heading text-base font-extrabold text-gray-900 dark:text-white tracking-wide group-hover:text-brand-orange transition-colors">
                 {niche.name}
               </h3>
-              <p className="text-[10px] text-gray-400 font-medium mt-0.5">
+              <p className="text-[10px] text-gray-600 dark:text-gray-400 font-medium mt-0.5">
                 {niche.count}
               </p>
             </div>

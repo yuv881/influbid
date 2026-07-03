@@ -45,12 +45,12 @@ export default function Stats() {
               </div>
 
               {/* Metric */}
-              <span className="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-none">
+              <span className="font-heading text-2xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-none">
                 {stat.metric}
               </span>
 
               {/* Label */}
-              <span className="mt-2 text-xs sm:text-sm text-gray-400 font-medium">
+              <span className="mt-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
                 {stat.label}
               </span>
             </div>

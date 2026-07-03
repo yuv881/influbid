@@ -49,7 +49,7 @@ export default function OpenCampaigns() {
           <span className="font-heading text-xs font-bold text-brand-teal tracking-widest uppercase">
             LIVE NOW
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white mt-1 uppercase tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 dark:text-white mt-1 uppercase tracking-tight">
             OPEN CAMPAIGNS
           </h2>
         </div>
@@ -89,10 +89,10 @@ export default function OpenCampaigns() {
                 </div>
 
                 {/* Brand and Title */}
-                <span className="block text-xs font-medium text-gray-500 tracking-wide">
+                <span className="block text-xs font-medium text-gray-500 dark:text-gray-400 tracking-wide">
                   {campaign.brand}
                 </span>
-                <h3 className="text-white font-semibold text-base sm:text-lg mt-1 tracking-tight group-hover:text-brand-orange transition-colors">
+                <h3 className="text-gray-900 dark:text-white font-semibold text-base sm:text-lg mt-1 tracking-tight group-hover:text-brand-orange transition-colors">
                   {campaign.title}
                 </h3>
               </div>
@@ -102,7 +102,7 @@ export default function OpenCampaigns() {
                 <span className="font-heading text-sm font-extrabold text-brand-teal">
                   {campaign.budget}
                 </span>
-                <span className="text-xs text-gray-400 font-medium">
+                <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
                   {campaign.bids} bids
                 </span>
               </div>

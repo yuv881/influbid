@@ -6,13 +6,13 @@ export default function HowItWorks() {
     <section id="how-it-works" className="py-20 px-4 max-w-7xl mx-auto border-t border-brand-border/40">
       {/* Title block */}
       <div className="text-center mb-16">
-        <span className="font-heading text-xs font-bold text-gray-500 tracking-widest uppercase">
+        <span className="font-heading text-xs font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
           HOW IT WORKS
         </span>
-        <h2 className="font-heading text-3xl sm:text-5xl font-black text-white mt-1 uppercase tracking-tight">
+        <h2 className="font-heading text-3xl sm:text-5xl font-black text-gray-900 dark:text-white mt-1 uppercase tracking-tight">
           TWO SIDES. ONE PLATFORM.
         </h2>
-        <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
+        <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
           Built equally for brands and creators. Each role has its own clean workflow.
         </p>
       </div>
@@ -28,10 +28,10 @@ export default function HowItWorks() {
                 <Briefcase className="h-6 w-6 text-brand-orange" />
               </div>
               <div>
-                <h3 className="font-heading text-lg sm:text-xl font-extrabold text-white tracking-wide">
+                <h3 className="font-heading text-lg sm:text-xl font-extrabold text-gray-900 dark:text-white tracking-wide">
                   FOR BRANDS
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-400 font-medium mt-0.5">
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-0.5">
                   Post, filter, hire
                 </p>
               </div>
@@ -45,10 +45,10 @@ export default function HowItWorks() {
                   01
                 </span>
                 <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-white">
+                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
                     Post Your Campaign
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed mt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
                     Add product details, budget range, deadline, and content requirements. Takes under 5 minutes.
                   </p>
                 </div>
@@ -60,10 +60,10 @@ export default function HowItWorks() {
                   02
                 </span>
                 <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-white">
+                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
                     Set Bidder Filters
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed mt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
                     Define exactly who can apply — platform, follower range, engagement rate, niche, age, location.
                   </p>
                 </div>
@@ -75,10 +75,10 @@ export default function HowItWorks() {
                   03
                 </span>
                 <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-white">
+                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
                     Review & Accept
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed mt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
                     Bids come in from qualified creators. Review pitches, compare proposals, and accept the best match.
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export default function HowItWorks() {
           {/* Button */}
           <a
             href="#post-first-campaign"
-            className="flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full transform hover:scale-[1.02] active:scale-95 group shadow-lg shadow-brand-orange/20"
+            className="flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-gray-900 dark:text-white py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full transform hover:scale-[1.02] active:scale-95 group shadow-lg shadow-brand-orange/20"
           >
             POST YOUR FIRST CAMPAIGN
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -105,10 +105,10 @@ export default function HowItWorks() {
                 <Users className="h-6 w-6 text-brand-teal" />
               </div>
               <div>
-                <h3 className="font-heading text-lg sm:text-xl font-extrabold text-white tracking-wide">
+                <h3 className="font-heading text-lg sm:text-xl font-extrabold text-gray-900 dark:text-white tracking-wide">
                   FOR CREATORS
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-400 font-medium mt-0.5">
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-0.5">
                   Browse, pitch, win
                 </p>
               </div>
@@ -122,10 +122,10 @@ export default function HowItWorks() {
                   01
                 </span>
                 <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-white">
+                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
                     Build Your Profile
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed mt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
                     Add your platform, stats, niches, and bio. Your profile is auto-checked against campaign conditions.
                   </p>
                 </div>
@@ -137,10 +137,10 @@ export default function HowItWorks() {
                   02
                 </span>
                 <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-white">
+                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
                     Browse Eligible Campaigns
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed mt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
                     See exactly which campaigns you qualify for. No guessing, no wasted effort on campaigns you can't win.
                   </p>
                 </div>
@@ -152,10 +152,10 @@ export default function HowItWorks() {
                   03
                 </span>
                 <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-white">
+                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
                     Submit Your Bid
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed mt-1">
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
                     Write your pitch, set your rate, and describe your deliverables. Stand out with a specific, genuine proposal.
                   </p>
                 </div>
