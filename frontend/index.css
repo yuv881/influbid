@@ -1,1 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #080808;
+  --color-brand-card: #121212;
+  --color-brand-orange: #FF4E0D;
+  --color-brand-orangeHover: #E03D00;
+  --color-brand-teal: #00FA9A;
+  --color-brand-tealDark: #0D2E27;
+  --color-brand-border: #1E1E1E;
+  --color-brand-cardHover: #181818;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+@utility glass-panel {
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@utility glass-panel-orange {
+  background: rgba(255, 78, 13, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 78, 13, 0.15);
+}
+
+@utility glass-panel-teal {
+  background: rgba(0, 250, 154, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 250, 154, 0.15);
+}
+
+body {
+  background-color: #080808;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  /* Custom grid pattern background */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.025em;
+}
+
+/* Custom Webkit scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1e1e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4E0D;
+}
