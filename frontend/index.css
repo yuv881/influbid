@@ -14,8 +14,18 @@
   --color-brand-border: var(--border-color);
   --color-brand-cardHover: var(--card-hover);
 
+  --color-auth-bg: var(--auth-bg);
+  --color-auth-bg-alt: var(--auth-bg-alt);
+  --color-auth-surface: var(--auth-surface);
+  --color-auth-ink: var(--auth-ink);
+  --color-auth-ink-soft: var(--auth-ink-soft);
+  --color-auth-line: var(--auth-line);
+  --color-auth-brand: var(--auth-brand);
+  --color-auth-brand-ink: var(--auth-brand-ink);
+
   --font-sans: 'Manrope', sans-serif;
   --font-heading: 'Poppins', sans-serif;
+  --font-display: 'Fraunces', serif;
 }
 
 @utility glass-panel {
@@ -45,6 +55,15 @@ body {
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(0, 0, 0, 0.1);
 
+  --auth-bg: #FAF6EF;
+  --auth-bg-alt: #F1EADC;
+  --auth-surface: #FFFFFF;
+  --auth-ink: #1C1A17;
+  --auth-ink-soft: #5B5548;
+  --auth-line: #E4DBC9;
+  --auth-brand: #B5482A;
+  --auth-brand-ink: #FFF7F0;
+
   background-color: var(--bg-dark);
   color: #0f172a;
   font-family: 'Manrope', sans-serif;
@@ -61,6 +80,15 @@ body {
   --card-hover: #181818;
   --glass-bg: rgba(18, 18, 18, 0.8);
   --glass-border: rgba(255, 255, 255, 0.05);
+
+  --auth-bg: #171512;
+  --auth-bg-alt: #1E1B17;
+  --auth-surface: #211E19;
+  --auth-ink: #F3EEE3;
+  --auth-ink-soft: #B3AA98;
+  --auth-line: #35302A;
+  --auth-brand: #E2703A;
+  --auth-brand-ink: #201108;
 
   background-color: var(--bg-dark);
   color: #ffffff;
