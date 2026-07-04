@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Zap, ShieldCheck, X } from 'lucide-react';
+import { FaBolt, FaShield, FaXmark } from 'react-icons/fa6';
 
 export default function Footer() {
   const [showCookieSettings, setShowCookieSettings] = useState(false);
@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Left side: Logo */}
           <div className="flex items-center gap-2">
             <div className="bg-brand-orange text-gray-900 dark:text-white p-2 rounded-xl flex items-center justify-center shadow-lg shadow-brand-orange/20">
-              <Zap className="h-4 w-4 fill-current" />
+              <FaBolt className="h-4 w-4 fill-current" />
             </div>
             <span className="font-heading text-lg font-black tracking-wider text-gray-900 dark:text-white">
               INFLUBLAST
@@ -52,7 +52,7 @@ export default function Footer() {
           onClick={() => setShowCookieSettings(true)}
           className="bg-brand-dark/95 hover:bg-brand-cardHover border border-brand-border hover:border-gray-500 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white px-3 py-1.5 rounded-lg text-[10px] font-semibold tracking-wide transition-all duration-300 shadow-md backdrop-blur-md flex items-center gap-1.5"
         >
-          <ShieldCheck className="h-3 w-3 text-brand-orange" />
+          <FaShield className="h-3 w-3 text-brand-orange" />
           Manage cookies or opt out
         </button>
       </div>
@@ -68,7 +68,7 @@ export default function Footer() {
               onClick={() => setShowCookieSettings(false)}
               className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              <X className="h-4 w-4" />
+              <FaXmark className="h-4 w-4" />
             </button>
           </div>
           <p className="text-xxs sm:text-xs text-gray-600 dark:text-gray-400 font-normal leading-relaxed mb-4">

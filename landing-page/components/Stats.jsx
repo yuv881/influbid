@@ -1,28 +1,27 @@
-import React from 'react';
-import { Briefcase, DollarSign, Users, Target } from 'lucide-react';
+import { FaBriefcase, FaDollarSign, FaUsers, FaBullseye } from 'react-icons/fa6';
 
 const statsData = [
   {
     id: 1,
-    icon: Briefcase,
+    icon: FaBriefcase,
     metric: "2,400+",
     label: "Active Campaigns",
   },
   {
     id: 2,
-    icon: DollarSign,
+    icon: FaDollarSign,
     metric: "$4.2M",
     label: "Paid to Creators",
   },
   {
     id: 3,
-    icon: Users,
+    icon: FaUsers,
     metric: "18K+",
     label: "Verified Creators",
   },
   {
     id: 4,
-    icon: Target,
+    icon: FaBullseye,
     metric: "94%",
     label: "Match Rate",
   },

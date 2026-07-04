@@ -1,4 +1,4 @@
-import { ArrowRight, Briefcase, Users } from 'lucide-react';
+import { FaArrowRight, FaBriefcase, FaUsers } from 'react-icons/fa6';
 
 export default function Hero() {
   return (
@@ -28,17 +28,17 @@ export default function Hero() {
             href="#post-campaign"
             className="flex items-center justify-center gap-3 bg-brand-orange hover:bg-brand-orangeHover text-gray-900 dark:text-white px-8 py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full sm:w-auto transform hover:scale-105 active:scale-95 shadow-lg shadow-brand-orange/30 group"
           >
-            <Briefcase className="h-4 w-4" />
+            <FaBriefcase className="h-4 w-4" />
             POST A CAMPAIGN
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="#find-campaigns"
             className="flex items-center justify-center gap-3 bg-brand-dark hover:bg-brand-cardHover text-gray-900 dark:text-white border border-brand-border hover:border-gray-500 px-8 py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full sm:w-auto transform hover:scale-105 active:scale-95 group"
           >
-            <Users className="h-4 w-4 text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:hover:text-white" />
+            <FaUsers className="h-4 w-4 text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:hover:text-white" />
             FIND CAMPAIGNS
-            <ArrowRight className="h-4 w-4 text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:hover:text-white transition-transform group-hover:translate-x-1" />
+            <FaArrowRight className="h-4 w-4 text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:hover:text-white transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { FaStar } from 'react-icons/fa6';
 
 const testimonialsData = [
   {
@@ -49,7 +49,7 @@ export default function Testimonials() {
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 text-brand-orange fill-current" />
+                  <FaStar key={i} className="h-4 w-4 text-brand-orange fill-current" />
                 ))}
               </div>
 

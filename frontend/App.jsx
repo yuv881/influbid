@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router';
 import { useEffect } from 'react';
 import LandingPage from '../landing-page/App.jsx';
 import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
 
 const App = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 }

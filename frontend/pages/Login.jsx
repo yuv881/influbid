@@ -1,9 +1,16 @@
 import { useState } from 'react';
-import { Zap, Mail, Lock, Eye, EyeOff, ChevronLeft } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { FaBolt, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaChevronLeft } from 'react-icons/fa6';
 import { Link } from 'react-router';
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("Login Payload:", data);
+    alert("Login details submitted! (Check console for payload)");
+  };
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-brand-dark text-gray-900 dark:text-white font-sans selection:bg-brand-orange/30">
@@ -18,7 +25,7 @@ export default function Login() {
         {/* Top Logo */}
         <div className="relative z-10 flex items-center gap-3">
           <div className="bg-brand-orange text-white p-2 rounded-xl flex items-center justify-center shadow-lg shadow-brand-orange/20">
-            <Zap className="h-5 w-5 fill-current" />
+            <FaBolt className="h-5 w-5 fill-current" />
           </div>
           <span className="font-heading text-xl font-black tracking-widest text-gray-900 dark:text-white">
             INFLUBLAST
@@ -61,12 +68,12 @@ export default function Login() {
             SIGN IN
           </h2>
           <p className="text-gray-600 dark:text-gray-400 font-medium mb-10">
-            No account? <a href="#create" className="text-brand-orange hover:text-brand-orangeHover transition-colors">Create one free</a>
+            No account? <Link to="/register" className="text-brand-orange hover:text-brand-orangeHover transition-colors">Create one free</Link>
           </p>
 
 
           {/* Form */}
-          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
 
             {/* Email Field */}
             <div className="flex flex-col gap-2">
@@ -75,14 +82,16 @@ export default function Login() {
               </label>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-brand-orange transition-colors">
-                  <Mail className="h-5 w-5" />
+                  <FaEnvelope className="h-5 w-5" />
                 </div>
                 <input
                   type="email"
                   placeholder="you@example.com"
+                  {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email" } })}
                   className="w-full bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#2A2A2A] rounded-xl py-4 pl-12 pr-4 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all font-medium"
                 />
               </div>
+              {errors.email && <span className="text-red-500 text-xs pl-1 font-medium">{errors.email.message}</span>}
             </div>
 
             {/* Password Field */}
@@ -97,11 +106,12 @@ export default function Login() {
               </div>
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-brand-orange transition-colors">
-                  <Lock className="h-5 w-5" />
+                  <FaLock className="h-5 w-5" />
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
+                  {...register("password", { required: "Password is required" })}
                   className="w-full bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#2A2A2A] rounded-xl py-4 pl-12 pr-12 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all font-medium tracking-widest"
                 />
                 <button
@@ -109,9 +119,10 @@ export default function Login() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors focus:outline-none"
                 >
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  {showPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />}
                 </button>
               </div>
+              {errors.password && <span className="text-red-500 text-xs pl-1 font-medium">{errors.password.message}</span>}
             </div>
 
             {/* Submit Button */}
@@ -119,7 +130,7 @@ export default function Login() {
               type="submit"
               className="mt-4 bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-heading text-sm font-black tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-brand-orange/20"
             >
-              <Zap className="h-5 w-5 fill-current" />
+              <FaBolt className="h-5 w-5 fill-current" />
               Sign In
             </button>
           </form>
@@ -127,7 +138,7 @@ export default function Login() {
           {/* Back to Home */}
           <div className="mt-8">
             <Link to="/" className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm font-mono tracking-tight group">
-              <ChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+              <FaChevronLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
               Back to home
             </Link>
           </div>

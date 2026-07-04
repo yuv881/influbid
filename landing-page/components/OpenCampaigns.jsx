@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { FaArrowRight } from 'react-icons/fa6';
 import runnerImg from '../assets/runner.jpg';
 import serumImg from '../assets/serum.jpg';
 import dashboardImg from '../assets/dashboard.jpg';
@@ -58,7 +58,7 @@ export default function OpenCampaigns() {
           className="font-heading text-xs font-bold text-brand-orange hover:text-brand-orangeHover tracking-widest flex items-center gap-1 transition-colors group"
         >
           VIEW ALL
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </a>
       </div>
 

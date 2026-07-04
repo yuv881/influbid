@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Briefcase, Users } from 'lucide-react';
+import { FaArrowRight, FaBriefcase, FaUsers } from 'react-icons/fa6';
 
 export default function HowItWorks() {
   return (
@@ -25,7 +25,7 @@ export default function HowItWorks() {
             {/* Header */}
             <div className="flex items-center gap-4 mb-8">
               <div className="bg-brand-orange/10 p-3 rounded-xl">
-                <Briefcase className="h-6 w-6 text-brand-orange" />
+                <FaBriefcase className="h-6 w-6 text-brand-orange" />
               </div>
               <div>
                 <h3 className="font-heading text-lg sm:text-xl font-extrabold text-gray-900 dark:text-white tracking-wide">
@@ -92,7 +92,7 @@ export default function HowItWorks() {
             className="flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-gray-900 dark:text-white py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full transform hover:scale-[1.02] active:scale-95 group shadow-lg shadow-brand-orange/20"
           >
             POST YOUR FIRST CAMPAIGN
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
 
@@ -102,7 +102,7 @@ export default function HowItWorks() {
             {/* Header */}
             <div className="flex items-center gap-4 mb-8">
               <div className="bg-brand-teal/10 p-3 rounded-xl">
-                <Users className="h-6 w-6 text-brand-teal" />
+                <FaUsers className="h-6 w-6 text-brand-teal" />
               </div>
               <div>
                 <h3 className="font-heading text-lg sm:text-xl font-extrabold text-gray-900 dark:text-white tracking-wide">
@@ -169,7 +169,7 @@ export default function HowItWorks() {
             className="flex items-center justify-center gap-2 bg-brand-tealDark hover:bg-brand-tealDark/80 border border-brand-teal/40 text-brand-teal py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full transform hover:scale-[1.02] active:scale-95 group shadow-lg shadow-brand-teal/10"
           >
             START BROWSING CAMPAIGNS
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>

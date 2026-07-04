@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Zap, Sun, Moon } from 'lucide-react';
+import { FaBars, FaXmark, FaBolt, FaSun, FaMoon } from 'react-icons/fa6';
 import { useEffect } from 'react';
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             <div className="bg-brand-orange text-gray-900 dark:text-white p-2 rounded-xl flex items-center justify-center shadow-lg shadow-brand-orange/20 animate-pulse">
-              <Zap className="h-5 w-5 fill-current" />
+              <FaBolt className="h-5 w-5 fill-current" />
             </div>
             <span className="font-heading text-xl font-black tracking-wider text-gray-900 dark:text-white">
               INFLUBLAST
@@ -57,7 +57,7 @@ export default function Navbar() {
               SIGN IN
             </a>
             <a
-              href="#get-started"
+              href="/register"
               className="bg-brand-orange hover:bg-brand-orangeHover text-gray-900 dark:text-white px-6 py-3 rounded-lg font-heading text-xs font-black tracking-widest transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-brand-orange/25"
             >
               GET STARTED
@@ -67,7 +67,7 @@ export default function Navbar() {
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 focus:outline-none transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+              {theme === 'light' ? <FaMoon className="h-5 w-5" /> : <FaSun className="h-5 w-5" />}
             </button>
           </div>
 
@@ -78,14 +78,14 @@ export default function Navbar() {
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 focus:outline-none transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon className="h-6 w-6" /> : <Sun className="h-6 w-6" />}
+              {theme === 'light' ? <FaMoon className="h-6 w-6" /> : <FaSun className="h-6 w-6" />}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-2 focus:outline-none"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <FaXmark className="h-6 w-6" /> : <FaBars className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function Navbar() {
               SIGN IN
             </a>
             <a
-              href="#get-started"
+              href="/register"
               onClick={() => setIsOpen(false)}
               className="bg-brand-orange hover:bg-brand-orangeHover text-gray-900 dark:text-white text-center py-3 rounded-lg font-heading text-sm font-black tracking-widest transition-all duration-300"
             >

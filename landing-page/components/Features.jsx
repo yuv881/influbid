@@ -1,40 +1,39 @@
-import React from 'react';
-import { Target, Zap, Shield, BarChart3, Sparkles, Award } from 'lucide-react';
+import { FaBullseye, FaBolt, FaShield, FaChartBar, FaWandMagicSparkles, FaAward } from 'react-icons/fa6';
 
 const featuresData = [
   {
     id: 1,
-    icon: Target,
+    icon: FaBullseye,
     title: "Precision Matching",
     description: "Companies set detailed eligibility conditions — follower count, engagement rate, niche, platform, age range, and location — so only qualified creators can apply.",
   },
   {
     id: 2,
-    icon: Zap,
+    icon: FaBolt,
     title: "Competitive Bidding",
     description: "Creators submit proposals with their own rates, pitches, and deliverables. Brands pick the best fit, not just the lowest price.",
   },
   {
     id: 3,
-    icon: Shield,
+    icon: FaShield,
     title: "Verified Profiles",
     description: "Every creator account shows real metrics: follower count, engagement rate, past campaign history, and ratings from previous brands.",
   },
   {
     id: 4,
-    icon: BarChart3,
+    icon: FaChartBar,
     title: "Campaign Analytics",
     description: "Track bid activity, budget commitments, and campaign performance from your dashboard with live charts and status updates.",
   },
   {
     id: 5,
-    icon: Sparkles,
+    icon: FaWandMagicSparkles,
     title: "Smart Eligibility",
     description: "Creators instantly see which campaigns they qualify for. Automatic eligibility checking eliminates wasted applications.",
   },
   {
     id: 6,
-    icon: Award,
+    icon: FaAward,
     title: "Transparent Ratings",
     description: "Post-campaign ratings build creator reputations over time. Better performance = more campaign wins.",
   },
