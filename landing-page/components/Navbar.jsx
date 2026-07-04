@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { FaBolt, FaMoon, FaSun } from 'react-icons/fa6';
 
 export default function Navbar() {
@@ -35,8 +36,8 @@ export default function Navbar() {
         <a href="#">Categories</a>
       </nav>
       <div className="header-right">
-        <a href="#" style={{ fontSize: '14px', fontWeight: 600 }}>Sign in</a>
-        <button className="btn btn-brand">Get started</button>
+        <Link to="/login" style={{ fontSize: '14px', fontWeight: 600 }}>Sign in</Link>
+        <Link to="/register" className="btn btn-brand" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>Get started</Link>
         <button className="theme-toggle" onClick={toggleTheme} id="themeBtn">
           {!isDark ? <FaMoon /> : <FaSun />}
         </button>

@@ -116,6 +116,10 @@ section{padding:88px 32px;}
 .how-card{
   background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:36px;
   box-shadow:var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.how-card:hover{
+  transform: translateY(-4px);
 }
 .how-card .tag{
   display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:800;
@@ -150,7 +154,8 @@ section{padding:88px 32px;}
 
 /* Features */
 .feat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.feat-card{padding:28px; border-radius:14px; background:var(--surface); border:1px solid var(--line);}
+.feat-card{padding:28px; border-radius:14px; background:var(--surface); border:1px solid var(--line); transition: transform .2s ease, box-shadow .2s ease;}
+.feat-card:hover{transform: translateY(-4px); box-shadow: var(--shadow);}
 .feat-icon{
   width:44px; height:44px; border-radius:10px; background:color-mix(in srgb, var(--brand) 12%, transparent);
   color:var(--brand); display:flex; align-items:center; justify-content:center; margin-bottom:18px; font-size:19px;
@@ -163,13 +168,18 @@ section{padding:88px 32px;}
 .niche{
   aspect-ratio:3/4; border-radius:12px; background-size:cover; background-position:center;
   position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:16px;
+  transition: transform .2s ease; cursor: pointer;
+}
+.niche:hover{
+  transform: scale(1.03);
 }
 .niche::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.72) 100%);}
 .niche span{position:relative; z-index:1; color:#fff; font-weight:700; font-size:14px;}
 
 /* Testimonials */
 .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.test-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:28px;}
+.test-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:28px; transition: transform .2s ease, box-shadow .2s ease;}
+.test-card:hover{transform: translateY(-4px); box-shadow: var(--shadow);}
 .stars{color:var(--gold); font-size:14px; margin-bottom:14px; letter-spacing:2px;}
 .test-card p{font-size:14.5px; line-height:1.65; color:var(--ink); font-style:italic; margin-bottom:20px;}
 .person{font-size:13.5px; font-weight:700;}
