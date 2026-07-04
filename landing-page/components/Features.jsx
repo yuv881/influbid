@@ -1,83 +1,45 @@
-import { FaBullseye, FaBolt, FaShield, FaChartBar, FaWandMagicSparkles, FaAward } from 'react-icons/fa6';
-
-const featuresData = [
-  {
-    id: 1,
-    icon: FaBullseye,
-    title: "Precision Matching",
-    description: "Companies set detailed eligibility conditions — follower count, engagement rate, niche, platform, age range, and location — so only qualified creators can apply.",
-  },
-  {
-    id: 2,
-    icon: FaBolt,
-    title: "Competitive Bidding",
-    description: "Creators submit proposals with their own rates, pitches, and deliverables. Brands pick the best fit, not just the lowest price.",
-  },
-  {
-    id: 3,
-    icon: FaShield,
-    title: "Verified Profiles",
-    description: "Every creator account shows real metrics: follower count, engagement rate, past campaign history, and ratings from previous brands.",
-  },
-  {
-    id: 4,
-    icon: FaChartBar,
-    title: "Campaign Analytics",
-    description: "Track bid activity, budget commitments, and campaign performance from your dashboard with live charts and status updates.",
-  },
-  {
-    id: 5,
-    icon: FaWandMagicSparkles,
-    title: "Smart Eligibility",
-    description: "Creators instantly see which campaigns they qualify for. Automatic eligibility checking eliminates wasted applications.",
-  },
-  {
-    id: 6,
-    icon: FaAward,
-    title: "Transparent Ratings",
-    description: "Post-campaign ratings build creator reputations over time. Better performance = more campaign wins.",
-  },
-];
-
 export default function Features() {
   return (
-    <section id="features" className="py-20 px-4 max-w-7xl mx-auto border-t border-brand-border/40">
-      {/* Title Block */}
-      <div className="text-center mb-16">
-        <span className="font-heading text-xs font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
-          PLATFORM FEATURES
-        </span>
-        <h2 className="font-heading text-3xl sm:text-5xl font-black text-gray-900 dark:text-white mt-1 uppercase tracking-tight">
-          BUILT FOR RESULTS
-        </h2>
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featuresData.map((feature) => {
-          const Icon = feature.icon;
-          return (
-            <div
-              key={feature.id}
-              className="glass-panel hover:border-brand-orange/20 rounded-2xl p-8 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-orange/5 group"
-            >
-              {/* Icon Container */}
-              <div className="bg-brand-orange/10 p-3 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Icon className="h-6 w-6 text-brand-orange" />
-              </div>
-
-              {/* Title */}
-              <h3 className="font-heading text-lg font-extrabold text-gray-900 dark:text-white tracking-wide">
-                {feature.title}
-              </h3>
-
-              {/* Description */}
-              <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          );
-        })}
+    <section className="how">
+      <div className="wrap">
+        <div className="section-head">
+          <div>
+            <span className="eyebrow" style={{ color: 'var(--brand)' }}>Platform features</span>
+            <div className="section-title display">Built for results</div>
+          </div>
+        </div>
+        <div className="feat-grid">
+          <div className="feat-card">
+            <div className="feat-icon">◎</div>
+            <h4>Precision matching</h4>
+            <p>Brands set detailed eligibility — follower count, engagement, niche, platform, age, location.</p>
+          </div>
+          <div className="feat-card">
+            <div className="feat-icon">⚡</div>
+            <h4>Competitive bidding</h4>
+            <p>Creators submit proposals with their own rates. Brands pick the best fit, not the lowest price.</p>
+          </div>
+          <div className="feat-card">
+            <div className="feat-icon">🛡</div>
+            <h4>Verified profiles</h4>
+            <p>Every creator account shows real metrics: followers, engagement, campaign history, ratings.</p>
+          </div>
+          <div className="feat-card">
+            <div className="feat-icon">📊</div>
+            <h4>Campaign analytics</h4>
+            <p>Track bid activity, budget commitments, and performance with live dashboard charts.</p>
+          </div>
+          <div className="feat-card">
+            <div className="feat-icon">✓</div>
+            <h4>Smart eligibility</h4>
+            <p>Creators instantly see which campaigns they qualify for — no wasted applications.</p>
+          </div>
+          <div className="feat-card">
+            <div className="feat-icon">★</div>
+            <h4>Transparent ratings</h4>
+            <p>Post-campaign ratings build reputations over time. Better performance, more wins.</p>
+          </div>
+        </div>
       </div>
     </section>
   );

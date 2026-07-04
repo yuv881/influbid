@@ -1,176 +1,67 @@
-import React from 'react';
-import { FaArrowRight, FaBriefcase, FaUsers } from 'react-icons/fa6';
-
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 px-4 max-w-7xl mx-auto border-t border-brand-border/40">
-      {/* Title block */}
-      <div className="text-center mb-16">
-        <span className="font-heading text-xs font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
-          HOW IT WORKS
-        </span>
-        <h2 className="font-heading text-3xl sm:text-5xl font-black text-gray-900 dark:text-white mt-1 uppercase tracking-tight">
-          TWO SIDES. ONE PLATFORM.
-        </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
-          Built equally for brands and creators. Each role has its own clean workflow.
-        </p>
-      </div>
-
-      {/* Columns */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* For Brands (Orange) */}
-        <div className="glass-panel-orange rounded-3xl p-8 sm:p-10 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-orange/5 transition-all duration-300">
+    <section className="how">
+      <div className="wrap">
+        <div className="section-head">
           <div>
-            {/* Header */}
-            <div className="flex items-center gap-4 mb-8">
-              <div className="bg-brand-orange/10 p-3 rounded-xl">
-                <FaBriefcase className="h-6 w-6 text-brand-orange" />
-              </div>
-              <div>
-                <h3 className="font-heading text-lg sm:text-xl font-extrabold text-gray-900 dark:text-white tracking-wide">
-                  FOR BRANDS
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-0.5">
-                  Post, filter, hire
-                </p>
-              </div>
-            </div>
-
-            {/* Steps */}
-            <div className="flex flex-col gap-8 mb-10">
-              {/* Step 1 */}
-              <div className="flex gap-4">
-                <span className="font-heading text-xs sm:text-sm font-black text-brand-orange bg-brand-orange/10 h-8 w-8 sm:h-9 sm:w-9 rounded-lg flex items-center justify-center shrink-0">
-                  01
-                </span>
-                <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
-                    Post Your Campaign
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
-                    Add product details, budget range, deadline, and content requirements. Takes under 5 minutes.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex gap-4">
-                <span className="font-heading text-xs sm:text-sm font-black text-brand-orange bg-brand-orange/10 h-8 w-8 sm:h-9 sm:w-9 rounded-lg flex items-center justify-center shrink-0">
-                  02
-                </span>
-                <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
-                    Set Bidder Filters
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
-                    Define exactly who can apply — platform, follower range, engagement rate, niche, age, location.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex gap-4">
-                <span className="font-heading text-xs sm:text-sm font-black text-brand-orange bg-brand-orange/10 h-8 w-8 sm:h-9 sm:w-9 rounded-lg flex items-center justify-center shrink-0">
-                  03
-                </span>
-                <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
-                    Review & Accept
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
-                    Bids come in from qualified creators. Review pitches, compare proposals, and accept the best match.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <span className="eyebrow" style={{ color: 'var(--brand)' }}>How it works</span>
+            <div className="section-title display">Two sides, one platform</div>
+            <div className="section-sub">Built for brands and creators alike — each role gets its own clean workflow.</div>
           </div>
-
-          {/* Button */}
-          <a
-            href="#post-first-campaign"
-            className="flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-gray-900 dark:text-white py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full transform hover:scale-[1.02] active:scale-95 group shadow-lg shadow-brand-orange/20"
-          >
-            POST YOUR FIRST CAMPAIGN
-            <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
         </div>
-
-        {/* For Creators (Teal) */}
-        <div className="glass-panel-teal rounded-3xl p-8 sm:p-10 flex flex-col justify-between hover:shadow-xl hover:shadow-brand-teal/5 transition-all duration-300">
-          <div>
-            {/* Header */}
-            <div className="flex items-center gap-4 mb-8">
-              <div className="bg-brand-teal/10 p-3 rounded-xl">
-                <FaUsers className="h-6 w-6 text-brand-teal" />
-              </div>
-              <div>
-                <h3 className="font-heading text-lg sm:text-xl font-extrabold text-gray-900 dark:text-white tracking-wide">
-                  FOR CREATORS
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-0.5">
-                  Browse, pitch, win
-                </p>
+        <div className="how-grid">
+          <div className="how-card">
+            <span className="tag tag-brand">For brands</span>
+            <h3 className="display">Post, filter, hire</h3>
+            <div className="step">
+              <span className="step-num">01</span>
+              <div className="step-body">
+                <h4>Post your campaign</h4>
+                <p>Add product details, budget range, deadline, and content requirements. Takes under 5 minutes.</p>
               </div>
             </div>
-
-            {/* Steps */}
-            <div className="flex flex-col gap-8 mb-10">
-              {/* Step 1 */}
-              <div className="flex gap-4">
-                <span className="font-heading text-xs sm:text-sm font-black text-brand-teal bg-brand-teal/10 h-8 w-8 sm:h-9 sm:w-9 rounded-lg flex items-center justify-center shrink-0">
-                  01
-                </span>
-                <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
-                    Build Your Profile
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
-                    Add your platform, stats, niches, and bio. Your profile is auto-checked against campaign conditions.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex gap-4">
-                <span className="font-heading text-xs sm:text-sm font-black text-brand-teal bg-brand-teal/10 h-8 w-8 sm:h-9 sm:w-9 rounded-lg flex items-center justify-center shrink-0">
-                  02
-                </span>
-                <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
-                    Browse Eligible Campaigns
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
-                    See exactly which campaigns you qualify for. No guessing, no wasted effort on campaigns you can't win.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex gap-4">
-                <span className="font-heading text-xs sm:text-sm font-black text-brand-teal bg-brand-teal/10 h-8 w-8 sm:h-9 sm:w-9 rounded-lg flex items-center justify-center shrink-0">
-                  03
-                </span>
-                <div>
-                  <h4 className="font-heading text-sm sm:text-base font-extrabold text-gray-900 dark:text-white">
-                    Submit Your Bid
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed mt-1">
-                    Write your pitch, set your rate, and describe your deliverables. Stand out with a specific, genuine proposal.
-                  </p>
-                </div>
+            <div className="step">
+              <span className="step-num">02</span>
+              <div className="step-body">
+                <h4>Set bidder filters</h4>
+                <p>Define exactly who can apply — platform, follower range, engagement rate, niche, age, location.</p>
               </div>
             </div>
+            <div className="step">
+              <span className="step-num">03</span>
+              <div className="step-body">
+                <h4>Review & accept</h4>
+                <p>Bids come in from qualified creators. Compare proposals and accept the best match.</p>
+              </div>
+            </div>
+            <button className="btn btn-brand">Post your first campaign →</button>
           </div>
-
-          {/* Button */}
-          <a
-            href="#start-browsing"
-            className="flex items-center justify-center gap-2 bg-brand-tealDark hover:bg-brand-tealDark/80 border border-brand-teal/40 text-brand-teal py-4 rounded-xl font-heading text-xs sm:text-sm font-black tracking-widest transition-all duration-300 w-full transform hover:scale-[1.02] active:scale-95 group shadow-lg shadow-brand-teal/10"
-          >
-            START BROWSING CAMPAIGNS
-            <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          <div className="how-card">
+            <span className="tag tag-creator">For creators</span>
+            <h3 className="display">Browse, pitch, win</h3>
+            <div className="step">
+              <span className="step-num">01</span>
+              <div className="step-body">
+                <h4>Build your profile</h4>
+                <p>Add your platform, stats, niches, and bio. Auto-checked against campaign conditions.</p>
+              </div>
+            </div>
+            <div className="step">
+              <span className="step-num">02</span>
+              <div className="step-body">
+                <h4>Browse eligible campaigns</h4>
+                <p>See exactly which campaigns you qualify for. No guessing, no wasted effort.</p>
+              </div>
+            </div>
+            <div className="step">
+              <span className="step-num">03</span>
+              <div className="step-body">
+                <h4>Submit your bid</h4>
+                <p>Write your pitch, set your rate, and describe your deliverables.</p>
+              </div>
+            </div>
+            <button className="btn btn-creator">Start browsing campaigns →</button>
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800;900&display=swap');
 
 @import "tailwindcss";
 
@@ -14,8 +14,8 @@
   --color-brand-border: var(--border-color);
   --color-brand-cardHover: var(--card-hover);
 
-  --font-sans: 'Inter', sans-serif;
-  --font-heading: 'Outfit', sans-serif;
+  --font-sans: 'Manrope', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
 }
 
 @utility glass-panel {
@@ -47,7 +47,7 @@ body {
 
   background-color: var(--bg-dark);
   color: #0f172a;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   /* Custom grid pattern background */
   background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
@@ -67,8 +67,13 @@ body {
   background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Outfit', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 0.025em;
 }
 
@@ -76,13 +81,16 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #080808;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1e1e1e;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #FF4E0D;
 }

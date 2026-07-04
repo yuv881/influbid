@@ -1,6 +1,6 @@
+import './index.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
 import OpenCampaigns from './components/OpenCampaigns';
 import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
@@ -11,39 +11,24 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
-      {/* Navigation */}
+    <>
       <Navbar />
 
-      {/* Main Content Sections */}
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <Hero />
+      <Hero />
 
-        {/* Stats Strip */}
-        <Stats />
+      <HowItWorks />
 
-        {/* Live Now: Open Campaigns Grid */}
-        <OpenCampaigns />
+      <OpenCampaigns />
 
-        {/* How It Works Side-by-Side Walkthrough */}
-        <HowItWorks />
+      <Features />
 
-        {/* Platform Features Grid */}
-        <Features />
+      <PopularNiches />
 
-        {/* Popular Niche Categories */}
-        <PopularNiches />
+      <Testimonials />
 
-        {/* Testimonials */}
-        <Testimonials />
+      <CTA />
 
-        {/* CTA Banner Section */}
-        <CTA />
-      </main>
-
-      {/* Footer & Cookie triggers */}
       <Footer />
-    </div>
+    </>
   );
 }
