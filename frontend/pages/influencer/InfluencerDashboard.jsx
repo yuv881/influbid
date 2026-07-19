@@ -1,20 +1,19 @@
 import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 export default function InfluencerDashboard() {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('currentUser')); } catch { return null; }
+  });
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    if (!user || user.role !== 'influencer') {
-      // If not logged in as influencer, redirect to login
+    if (!currentUser || currentUser.role !== 'influencer') {
       navigate('/login');
-    } else {
-      setCurrentUser(user);
     }
-  }, [navigate]);
+  }, [currentUser, navigate]);
 
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
@@ -39,10 +38,10 @@ export default function InfluencerDashboard() {
   return (
     <div className="min-h-screen bg-auth-bg text-auth-ink font-sans transition-colors duration-300 antialiased p-8 flex flex-col items-center justify-center relative" data-theme={theme}>
       <button 
-        className="absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-base" 
+        className="absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-lg text-auth-ink" 
         onClick={toggleTheme} 
       >
-        {theme === 'light' ? '🌙' : '☀️'}
+        {theme === 'light' ? <FiMoon /> : <FiSun />}
       </button>
 
       <div className="w-full max-w-md bg-auth-surface border border-auth-line rounded-xl p-8 text-center shadow-lg">

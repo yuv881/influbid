@@ -8,7 +8,7 @@ export default function Features() {
             <div className="font-display text-[28px] md:text-[34px] font-bold tracking-[-0.01em] transition-colors duration-300 hover:text-brand cursor-default">Built for results</div>
           </div>
         </div>
-        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none [&::-webkit-scrollbar]:hidden pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0">
           <div className="min-w-[85vw] md:min-w-0 snap-center p-7 rounded-[14px] bg-surface border border-line transition-all hover:-translate-y-1 hover:shadow-custom">
             <div className="w-11 h-11 rounded-[10px] bg-[color-mix(in_srgb,var(--brand)_12%,transparent)] text-brand flex items-center justify-center mb-[18px] text-[19px]">◎</div>
             <h4 className="text-[16.5px] font-bold mb-2">Precision matching</h4>

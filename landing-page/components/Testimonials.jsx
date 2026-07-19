@@ -8,7 +8,7 @@ export default function Testimonials() {
             <div className="font-display text-[28px] md:text-[34px] font-bold tracking-[-0.01em] transition-colors duration-300 hover:text-brand cursor-default">What they say</div>
           </div>
         </div>
-        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none [&::-webkit-scrollbar]:hidden pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0">
           <div className="min-w-[85vw] md:min-w-0 snap-center bg-surface border border-line rounded-[14px] p-7 transition-all hover:-translate-y-1 hover:shadow-custom">
             <div className="text-gold text-[14px] mb-3.5 tracking-[2px]">★★★★★</div>
             <p className="text-[14.5px] leading-[1.65] text-ink italic mb-5">"I landed 3 campaigns in my first month. The eligibility filtering is a game changer — I only apply to campaigns that fit my audience."</p>

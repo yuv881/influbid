@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/incompatible-library */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router';
+import { FiSun, FiMoon } from 'react-icons/fi';
+import { Link, useNavigate, useSearchParams } from 'react-router';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -45,34 +47,59 @@ export default function Register() {
     }
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (!data.terms) {
       alert("Please agree to the terms and privacy policy.");
       return;
     }
     console.log("Registration Payload:", data);
-    
-    // Save to localStorage
-    const users = JSON.parse(localStorage.getItem('influbid_users') || '[]');
-    if (users.find(u => u.email === data.email)) {
-      alert("User with this email already exists!");
-      return;
+
+    // Map data to Mongoose schema structures
+    const typeMapped = data.role === 'influencer' ? 'Influencer' : 'Company';
+    const phoneParsed = Number(data.phone);
+    const urlArray = currentRole === 'influencer' ? selectedPlatforms.map(platform => ({
+      platform,
+      url: data.urls && data.urls[platform] ? data.urls[platform] : ""
+    })).filter(item => item.url !== "") : [];
+
+    try {
+      const payload = {
+        type: typeMapped,
+        userName: data.userName,
+        name: data.name,
+        email: data.email,
+        phone: phoneParsed,
+        password: data.password,
+        url: urlArray
+      };
+
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "";
+      const response = await fetch(`${backendUrl}/api/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const resData = await response.json();
+
+      if (!response.ok) {
+        alert(resData.message || "Registration failed!");
+        return;
+      }
+
+      navigate('/login');
+    } catch (err) {
+      console.error("Register Error:", err);
+      alert("Network error: Could not reach the database server!");
     }
-    if (users.find(u => u.userName === data.userName)) {
-      alert("User with this username already exists!");
-      return;
-    }
-    
-    users.push(data);
-    localStorage.setItem('influbid_users', JSON.stringify(users));
-    alert("Registration successful! Please sign in.");
-    navigate('/login');
   };
 
   return (
     <div className="min-h-screen bg-auth-bg text-auth-ink font-sans transition-colors duration-300 antialiased" data-theme={theme}>
       <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        <div className="hidden md:flex flex-col justify-between relative bg-auth-bg-alt border-r border-auth-line p-14 bg-[radial-gradient(var(--auth-line)_1px,transparent_1px)] bg-[size:26px_26px]">
+        <div className="hidden md:flex flex-col justify-between relative bg-auth-bg-alt border-r border-auth-line p-14 bg-[radial-gradient(var(--auth-line)_1px,transparent_1px)] bg-size-[26px_26px]">
           <div className="flex items-center gap-2.5 font-extrabold text-[19px] tracking-[-0.02em]">
             <span className="w-8 h-8 rounded-lg bg-[#B5482A] flex items-center justify-center text-[#FFF7F0] text-base">⚡</span>
             INFLUBLAST
@@ -105,11 +132,11 @@ export default function Register() {
 
         <div className="flex justify-center bg-auth-bg relative p-8 md:p-14 overflow-y-auto h-screen">
           <button
-            className="hidden md:flex absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer items-center justify-center text-base hover:bg-auth-line transition-colors"
+            className="hidden md:flex absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer items-center justify-center text-lg text-auth-ink hover:bg-auth-line transition-colors"
             onClick={toggleTheme}
             id="themeBtn"
           >
-            {theme === 'light' ? '🌙' : '☀️'}
+            {theme === 'light' ? <FiMoon /> : <FiSun />}
           </button>
 
           <div className="w-full max-w-[460px] my-auto">
@@ -119,12 +146,12 @@ export default function Register() {
                 <span className="w-8 h-8 rounded-lg bg-[#B5482A] flex items-center justify-center text-[#FFF7F0] text-base">⚡</span>
                 INFLUBLAST
               </Link>
-              <button 
+              <button
                 type="button"
-                className="w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-base hover:bg-auth-line transition-colors" 
+                className="w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-lg text-auth-ink hover:bg-auth-line transition-colors"
                 onClick={toggleTheme}
               >
-                {theme === 'light' ? '🌙' : '☀️'}
+                {theme === 'light' ? <FiMoon /> : <FiSun />}
               </button>
             </div>
 
@@ -298,7 +325,7 @@ export default function Register() {
                 <input type="checkbox" className="mt-1 accent-[#B5482A]" {...register("terms")} />
                 <div>
                   <h4 className="text-[14.5px] font-bold mb-1">I agree to the Terms & Privacy Policy</h4>
-                  <p className="text-[12.5px] text-auth-ink-soft leading-[1.5]">By creating an account you agree to Influblast's terms of service and privacy policy.</p>
+                  <p className="text-[12.5px] text-auth-ink-soft leading-normal">By creating an account you agree to Influblast's terms of service and privacy policy.</p>
                 </div>
               </label>
 

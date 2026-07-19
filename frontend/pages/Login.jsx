@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router';
 
 export default function Login() {
@@ -21,13 +22,46 @@ export default function Login() {
     }
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log("Login Payload:", data);
-    
-    // Check registered users in localStorage
+
+    try {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "";
+      const response = await fetch(`${backendUrl}/api/users/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password
+        })
+      });
+
+      const resData = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('currentUser', JSON.stringify(resData));
+        localStorage.setItem('token', resData.token);
+        if (resData.role === 'company') {
+          navigate('/company/dashboard');
+        } else if (resData.role === 'influencer') {
+          navigate('/influencer/dashboard');
+        } else {
+          alert("Unknown user role: " + resData.role);
+        }
+        return;
+      } else {
+        console.warn("API Login failed:", resData.message);
+      }
+    } catch (err) {
+      console.warn("API Login failed with network error, trying fallback:", err);
+    }
+
+    // Check registered users in localStorage (fallback)
     const users = JSON.parse(localStorage.getItem('influbid_users') || '[]');
     let user = users.find(u => u.email === data.email && u.password === data.password);
-    
+
     // Fallback accounts for testing convenience
     if (!user) {
       if (data.email === 'company@influblast.com' && data.password === 'password') {
@@ -50,7 +84,7 @@ export default function Login() {
         };
       }
     }
-    
+
     if (user) {
       localStorage.setItem('currentUser', JSON.stringify(user));
       if (user.role === 'company') {
@@ -68,7 +102,7 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-auth-bg text-auth-ink font-sans transition-colors duration-300 antialiased" data-theme={theme}>
       <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        <div className="hidden md:flex flex-col justify-between relative bg-auth-bg-alt border-r border-auth-line p-14 bg-[radial-gradient(var(--auth-line)_1px,transparent_1px)] bg-[size:26px_26px]">
+        <div className="hidden md:flex flex-col justify-between relative bg-auth-bg-alt border-r border-auth-line p-14 bg-[radial-gradient(var(--auth-line)_1px,transparent_1px)] bg-size-[26px_26px]">
           <div className="flex items-center gap-2.5 font-extrabold text-[19px] tracking-[-0.02em]">
             <span className="w-8 h-8 rounded-lg bg-auth-brand flex items-center justify-center text-auth-brand-ink text-base">⚡</span>
             INFLUBLAST
@@ -76,7 +110,7 @@ export default function Login() {
 
           <div>
             <h1 className="font-display text-[clamp(40px,5.2vw,66px)] leading-none font-bold tracking-[-0.02em] mb-6">
-              Welcome<br/><span className="text-auth-brand italic">back.</span>
+              Welcome<br /><span className="text-auth-brand italic">back.</span>
             </h1>
             <p className="max-w-[400px] text-auth-ink-soft text-base leading-[1.6]">
               Sign in to manage your campaigns or discover new brand deals.
@@ -100,12 +134,12 @@ export default function Login() {
         </div>
 
         <div className="flex items-center justify-center bg-auth-bg relative p-8 md:p-14">
-          <button 
-            className="hidden md:flex absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer items-center justify-center text-base hover:bg-auth-line transition-colors" 
-            onClick={toggleTheme} 
+          <button
+            className="hidden md:flex absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer items-center justify-center text-lg text-auth-ink hover:bg-auth-line transition-colors"
+            onClick={toggleTheme}
             id="themeBtn"
           >
-            {theme === 'light' ? '🌙' : '☀️'}
+            {theme === 'light' ? <FiMoon /> : <FiSun />}
           </button>
 
           <div className="w-full max-w-[400px]">
@@ -115,12 +149,12 @@ export default function Login() {
                 <span className="w-8 h-8 rounded-lg bg-auth-brand flex items-center justify-center text-auth-brand-ink text-base">⚡</span>
                 INFLUBLAST
               </Link>
-              <button 
+              <button
                 type="button"
-                className="w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-base hover:bg-auth-line transition-colors" 
+                className="w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-lg text-auth-ink hover:bg-auth-line transition-colors"
                 onClick={toggleTheme}
               >
-                {theme === 'light' ? '🌙' : '☀️'}
+                {theme === 'light' ? <FiMoon /> : <FiSun />}
               </button>
             </div>
 
@@ -134,11 +168,11 @@ export default function Login() {
                 <label className="text-[12px] font-extrabold tracking-[0.08em] uppercase text-auth-ink-soft block mb-2">Email</label>
                 <div className="relative flex items-center bg-auth-surface border-[1.5px] border-auth-line rounded-[10px] transition-colors focus-within:border-auth-brand">
                   <span className="px-3.5 text-auth-ink-soft text-[15px]">✉</span>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft"
                     placeholder="you@example.com"
-                    {...register("email", { required: "Email is required" })} 
+                    {...register("email", { required: "Email is required" })}
                   />
                 </div>
                 {errors.email && <div className="text-red-500 text-[12px] mt-1">{errors.email.message}</div>}
@@ -151,11 +185,11 @@ export default function Login() {
                 </div>
                 <div className="relative flex items-center bg-auth-surface border-[1.5px] border-auth-line rounded-[10px] transition-colors focus-within:border-auth-brand">
                   <span className="px-3.5 text-auth-ink-soft text-[15px]">🔒</span>
-                  <input 
-                    type={showPassword ? "text" : "password"} 
+                  <input
+                    type={showPassword ? "text" : "password"}
                     className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft"
                     placeholder="••••••••"
-                    {...register("password", { required: "Password is required" })} 
+                    {...register("password", { required: "Password is required" })}
                   />
                   <button type="button" className="px-3.5 cursor-pointer text-auth-ink-soft text-[15px] bg-transparent border-none" onClick={() => setShowPassword(!showPassword)}>
                     {showPassword ? '👁' : '👁'}
