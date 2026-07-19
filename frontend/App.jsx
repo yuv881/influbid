@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import LandingPage from '../landing-page/App.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import CompanyDashboard from './pages/company/CompanyDashboard.jsx';
+import InfluencerDashboard from './pages/influencer/InfluencerDashboard.jsx';
 
 const App = () => {
   useEffect(() => {
@@ -21,6 +23,8 @@ const App = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/company/dashboard" element={<CompanyDashboard />} />
+      <Route path="/influencer/dashboard" element={<InfluencerDashboard />} />
     </Routes>
   );
 }

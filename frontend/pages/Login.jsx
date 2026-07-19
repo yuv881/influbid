@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,7 +23,46 @@ export default function Login() {
 
   const onSubmit = (data) => {
     console.log("Login Payload:", data);
-    alert("Login details submitted! (Check console for payload)");
+    
+    // Check registered users in localStorage
+    const users = JSON.parse(localStorage.getItem('influbid_users') || '[]');
+    let user = users.find(u => u.email === data.email && u.password === data.password);
+    
+    // Fallback accounts for testing convenience
+    if (!user) {
+      if (data.email === 'company@influblast.com' && data.password === 'password') {
+        user = {
+          email: 'company@influblast.com',
+          role: 'company',
+          name: 'jkkh',
+          userName: 'fdsjlj',
+          companySize: '1-10 employees',
+          primaryNiche: 'Fitness'
+        };
+      } else if (data.email === 'influencer@influblast.com' && data.password === 'password') {
+        user = {
+          email: 'influencer@influblast.com',
+          role: 'influencer',
+          name: 'Marcus Chen',
+          userName: 'marcus_creator',
+          primaryPlatform: 'Instagram',
+          primaryNiche: 'Fitness'
+        };
+      }
+    }
+    
+    if (user) {
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      if (user.role === 'company') {
+        navigate('/company/dashboard');
+      } else if (user.role === 'influencer') {
+        navigate('/influencer/dashboard');
+      } else {
+        alert("Unknown user role: " + user.role);
+      }
+    } else {
+      alert("Invalid email or password!");
+    }
   };
 
   return (

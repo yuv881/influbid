@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 export default function Register() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [step, setStep] = useState(1);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
@@ -47,7 +48,22 @@ export default function Register() {
       return;
     }
     console.log("Registration Payload:", data);
-    alert("Registration details submitted! (Check console for payload)");
+    
+    // Save to localStorage
+    const users = JSON.parse(localStorage.getItem('influbid_users') || '[]');
+    if (users.find(u => u.email === data.email)) {
+      alert("User with this email already exists!");
+      return;
+    }
+    if (users.find(u => u.userName === data.userName)) {
+      alert("User with this username already exists!");
+      return;
+    }
+    
+    users.push(data);
+    localStorage.setItem('influbid_users', JSON.stringify(users));
+    alert("Registration successful! Please sign in.");
+    navigate('/login');
   };
 
   return (

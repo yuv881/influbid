@@ -38,8 +38,8 @@ export default function Navbar() {
       </nav>
       <div className="flex items-center gap-2 md:gap-4.5">
         <Link to="/login" className="text-sm font-semibold">Sign in</Link>
-        <Link to="/register" className="inline-flex items-center justify-center gap-2 px-3 py-2 md:px-5.5 md:py-2.5 rounded-lg bg-brand text-brand-ink font-bold text-xs md:text-sm cursor-pointer border-none transition-transform hover:-translate-y-px">Get started</Link>
-        <button className="w-9 h-9 md:w-11 md:h-11 rounded-full border-[1.5px] border-line bg-surface cursor-pointer flex items-center justify-center text-sm md:text-base" onClick={toggleTheme} id="themeBtn">
+        <Link to="/register" className="inline-flex items-center justify-center gap-2 px-3 py-2 md:px-5.5 md:py-2.5 rounded-lg bg-brand text-brand-ink font-bold text-xs md:text-sm cursor-pointer border-none transition-colors hover:bg-white hover:text-black hover:-translate-y-px">Get started</Link>
+        <button className="w-9 h-9 md:w-11 md:h-11 rounded-full border-[1.5px] border-line bg-surface cursor-pointer flex items-center justify-center text-sm hover:text-ink md:text-base" onClick={toggleTheme} id="themeBtn">
           {!isDark ? <FaMoon /> : <FaSun />}
         </button>
       </div>
