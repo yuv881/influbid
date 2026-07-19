@@ -1,6 +1,7 @@
 import express from "express";
 import multer from "multer";
 import cloudinary from "../config/cloudinary.js";
+import process from 'process'
 
 
 const router = express.Router();
