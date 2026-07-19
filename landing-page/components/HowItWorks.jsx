@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 export default function HowItWorks() {
   return (
     <section className="bg-bg-alt px-5 md:px-8 py-14 md:py-[88px]">
@@ -34,7 +36,7 @@ export default function HowItWorks() {
                 <p className="text-[13.5px] text-ink-soft leading-[1.55]">Bids come in from qualified creators. Compare proposals and accept the best match.</p>
               </div>
             </div>
-            <button className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand text-brand-ink font-bold text-sm cursor-pointer border-none transition-transform hover:-translate-y-px w-full mt-3">Post your first campaign →</button>
+            <Link to="/register?role=company" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand text-brand-ink font-bold text-sm cursor-pointer border-none transition-transform hover:-translate-y-px w-full mt-3 no-underline">Post your first campaign →</Link>
           </div>
           <div className="bg-surface border border-line rounded-[16px] p-9 shadow-custom transition-all hover:-translate-y-1">
             <span className="inline-flex items-center gap-2 text-[12px] font-extrabold uppercase tracking-[0.08em] px-3 py-1.5 rounded-full mb-5 bg-[color-mix(in_srgb,var(--creator)_14%,transparent)] text-creator">For creators</span>
@@ -60,7 +62,7 @@ export default function HowItWorks() {
                 <p className="text-[13.5px] text-ink-soft leading-[1.55]">Write your pitch, set your rate, and describe your deliverables.</p>
               </div>
             </div>
-            <button className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-creator text-creator-ink font-bold text-sm cursor-pointer border-none transition-transform hover:-translate-y-px w-full mt-3">Start browsing campaigns →</button>
+            <Link to="/register?role=influencer" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-creator text-creator-ink font-bold text-sm cursor-pointer border-none transition-transform hover:-translate-y-px w-full mt-3 no-underline">Start browsing campaigns →</Link>
           </div>
         </div>
       </div>

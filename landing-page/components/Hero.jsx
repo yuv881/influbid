@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 export default function Hero() {
   return (
     <section className="text-center relative overflow-hidden px-5 md:px-8 pt-16 md:pt-24 pb-12 md:pb-16">
@@ -10,8 +12,8 @@ export default function Hero() {
         Companies post campaigns. Creators bid. The best match wins — no agencies, no fixed rates, just transparent competition.
       </p>
       <div className="flex flex-col md:flex-row justify-center gap-3.5 mb-12 md:mb-[72px]">
-        <button className="inline-flex items-center justify-center gap-2 px-7 py-[15px] rounded-[10px] bg-brand text-brand-ink font-bold text-[15px] cursor-pointer border-none transition-transform hover:-translate-y-px w-full md:w-auto">Post a campaign →</button>
-        <button className="inline-flex items-center justify-center gap-2 px-7 py-[15px] rounded-[10px] bg-transparent text-ink border-[1.5px] border-line font-bold text-[15px] cursor-pointer transition-transform hover:-translate-y-px w-full md:w-auto">Find campaigns →</button>
+        <Link to="/register?role=company" className="inline-flex items-center justify-center gap-2 px-7 py-[15px] rounded-[10px] bg-brand text-brand-ink font-bold text-[15px] cursor-pointer border-none transition-transform hover:-translate-y-px w-full md:w-auto no-underline">Post a campaign →</Link>
+        <Link to="/register?role=influencer" className="inline-flex items-center justify-center gap-2 px-7 py-[15px] rounded-[10px] bg-transparent text-ink border-[1.5px] border-line font-bold text-[15px] cursor-pointer transition-transform hover:-translate-y-px w-full md:w-auto no-underline">Find campaigns →</Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-[14px] overflow-hidden max-w-[940px] mx-auto">
         <div className="bg-surface p-7 text-left">

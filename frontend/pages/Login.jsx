@@ -61,7 +61,7 @@ export default function Login() {
 
         <div className="flex items-center justify-center bg-auth-bg relative p-8 md:p-14">
           <button 
-            className="absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-base" 
+            className="hidden md:flex absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer items-center justify-center text-base hover:bg-auth-line transition-colors" 
             onClick={toggleTheme} 
             id="themeBtn"
           >
@@ -69,6 +69,21 @@ export default function Login() {
           </button>
 
           <div className="w-full max-w-[400px]">
+            {/* Mobile Header (Logo + Theme Toggle) */}
+            <div className="flex items-center justify-between mb-8 md:hidden">
+              <Link to="/" className="flex items-center gap-2.5 font-extrabold text-[19px] tracking-[-0.02em] text-auth-ink no-underline">
+                <span className="w-8 h-8 rounded-lg bg-auth-brand flex items-center justify-center text-auth-brand-ink text-base">⚡</span>
+                INFLUBLAST
+              </Link>
+              <button 
+                type="button"
+                className="w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-base hover:bg-auth-line transition-colors" 
+                onClick={toggleTheme}
+              >
+                {theme === 'light' ? '🌙' : '☀️'}
+              </button>
+            </div>
+
             <h2 className="font-display text-[32px] font-bold mb-2.5">Sign in</h2>
             <div className="text-auth-ink-soft text-[14.5px] mb-9">
               No account? <Link to="/register" className="text-auth-brand font-bold">Create one free</Link>
@@ -81,7 +96,7 @@ export default function Login() {
                   <span className="px-3.5 text-auth-ink-soft text-[15px]">✉</span>
                   <input 
                     type="email" 
-                    className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink"
+                    className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft"
                     placeholder="you@example.com"
                     {...register("email", { required: "Email is required" })} 
                   />
@@ -98,7 +113,7 @@ export default function Login() {
                   <span className="px-3.5 text-auth-ink-soft text-[15px]">🔒</span>
                   <input 
                     type={showPassword ? "text" : "password"} 
-                    className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink"
+                    className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft"
                     placeholder="••••••••"
                     {...register("password", { required: "Password is required" })} 
                   />

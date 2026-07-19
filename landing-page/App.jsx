@@ -1,4 +1,3 @@
-import './index.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import OpenCampaigns from './components/OpenCampaigns';
