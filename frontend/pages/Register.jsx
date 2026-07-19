@@ -8,10 +8,13 @@ export default function Register() {
   const [step, setStep] = useState(1);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [selectedPlatforms, setSelectedPlatforms] = useState(['Instagram']);
+  const [searchParams] = useSearchParams();
+
+  const initialRole = searchParams.get('role') === 'influencer' ? 'influencer' : 'company';
 
   const { register, handleSubmit, watch, setValue, trigger, formState: { errors } } = useForm({
     defaultValues: {
-      role: 'company',
+      role: initialRole,
       companySize: '1-10 employees',
       primaryPlatform: 'Instagram',
       primaryNiche: 'Fitness',
@@ -102,7 +105,7 @@ export default function Register() {
 
         <div className="flex justify-center bg-auth-bg relative p-8 md:p-14 overflow-y-auto h-screen">
           <button
-            className="absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-base hover:bg-auth-line transition-colors"
+            className="hidden md:flex absolute top-8 right-8 w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer items-center justify-center text-base hover:bg-auth-line transition-colors"
             onClick={toggleTheme}
             id="themeBtn"
           >
@@ -110,6 +113,20 @@ export default function Register() {
           </button>
 
           <div className="w-full max-w-[460px] my-auto">
+            {/* Mobile Header (Logo + Theme Toggle) */}
+            <div className="flex items-center justify-between mb-8 md:hidden">
+              <Link to="/" className="flex items-center gap-2.5 font-extrabold text-[19px] tracking-[-0.02em] text-auth-ink no-underline">
+                <span className="w-8 h-8 rounded-lg bg-[#B5482A] flex items-center justify-center text-[#FFF7F0] text-base">⚡</span>
+                INFLUBLAST
+              </Link>
+              <button 
+                type="button"
+                className="w-11 h-11 rounded-full border-[1.5px] border-auth-line bg-auth-surface cursor-pointer flex items-center justify-center text-base hover:bg-auth-line transition-colors" 
+                onClick={toggleTheme}
+              >
+                {theme === 'light' ? '🌙' : '☀️'}
+              </button>
+            </div>
 
             {/* STEP 1 */}
             <div className={step === 1 ? 'block' : 'hidden'}>
@@ -138,7 +155,7 @@ export default function Register() {
                   <label className="text-[12px] font-extrabold tracking-[0.08em] uppercase text-auth-ink-soft block mb-2">Name</label>
                   <div className="relative flex items-center bg-auth-surface border-[1.5px] border-auth-line rounded-[10px] transition-colors focus-within:border-[#B5482A]">
                     <span className="px-3.5 text-auth-ink-soft text-[15px]">👤</span>
-                    <input type="text" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink" placeholder="John Doe" {...register("name", { required: "Name is required" })} />
+                    <input type="text" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft" placeholder="John Doe" {...register("name", { required: "Name is required" })} />
                   </div>
                   {errors.name && <div className="text-red-500 text-[12px] mt-1">{errors.name.message}</div>}
                 </div>
@@ -146,7 +163,7 @@ export default function Register() {
                   <label className="text-[12px] font-extrabold tracking-[0.08em] uppercase text-auth-ink-soft block mb-2">Username</label>
                   <div className="relative flex items-center bg-auth-surface border-[1.5px] border-auth-line rounded-[10px] transition-colors focus-within:border-[#B5482A]">
                     <span className="px-3.5 text-auth-ink-soft text-[15px]">@</span>
-                    <input type="text" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink" placeholder="admin" {...register("userName", { required: "Username is required" })} />
+                    <input type="text" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft" placeholder="admin" {...register("userName", { required: "Username is required" })} />
                   </div>
                   {errors.userName && <div className="text-red-500 text-[12px] mt-1">{errors.userName.message}</div>}
                 </div>
@@ -156,7 +173,7 @@ export default function Register() {
                 <label className="text-[12px] font-extrabold tracking-[0.08em] uppercase text-auth-ink-soft block mb-2">Email</label>
                 <div className="relative flex items-center bg-auth-surface border-[1.5px] border-auth-line rounded-[10px] transition-colors focus-within:border-[#B5482A]">
                   <span className="px-3.5 text-auth-ink-soft text-[15px]">✉</span>
-                  <input type="email" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink" placeholder="you@example.com" {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email" } })} />
+                  <input type="email" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft" placeholder="you@example.com" {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email" } })} />
                 </div>
                 {errors.email && <div className="text-red-500 text-[12px] mt-1">{errors.email.message}</div>}
               </div>
@@ -165,7 +182,7 @@ export default function Register() {
                 <label className="text-[12px] font-extrabold tracking-[0.08em] uppercase text-auth-ink-soft block mb-2">Phone</label>
                 <div className="relative flex items-center bg-auth-surface border-[1.5px] border-auth-line rounded-[10px] transition-colors focus-within:border-[#B5482A]">
                   <span className="px-3.5 text-auth-ink-soft text-[15px]">📞</span>
-                  <input type="tel" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink" placeholder="1234567890" {...register("phone", { required: "Phone is required" })} />
+                  <input type="tel" className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft" placeholder="1234567890" {...register("phone", { required: "Phone is required" })} />
                 </div>
                 {errors.phone && <div className="text-red-500 text-[12px] mt-1">{errors.phone.message}</div>}
               </div>
@@ -174,7 +191,7 @@ export default function Register() {
                 <label className="text-[12px] font-extrabold tracking-[0.08em] uppercase text-auth-ink-soft block mb-2">Password</label>
                 <div className="relative flex items-center bg-auth-surface border-[1.5px] border-auth-line rounded-[10px] transition-colors focus-within:border-[#B5482A]">
                   <span className="px-3.5 text-auth-ink-soft text-[15px]">🔒</span>
-                  <input type={showPassword ? "text" : "password"} className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink" placeholder="Create a password" {...register("password", { required: "Password is required" })} />
+                  <input type={showPassword ? "text" : "password"} className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft" placeholder="Create a password" {...register("password", { required: "Password is required" })} />
                   <button type="button" className="px-3.5 cursor-pointer text-auth-ink-soft text-[15px] bg-transparent border-none hover:text-auth-ink" onClick={() => setShowPassword(!showPassword)}>👁</button>
                 </div>
                 {errors.password && <div className="text-red-500 text-[12px] mt-1">{errors.password.message}</div>}
@@ -250,7 +267,7 @@ export default function Register() {
                           <span className="px-3.5 text-auth-ink-soft text-[15px]">🔗</span>
                           <input
                             type="url"
-                            className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink"
+                            className="flex-1 border-none bg-transparent outline-none py-3.5 pr-3.5 font-sans text-[15px] text-auth-ink placeholder:text-auth-ink-soft"
                             placeholder={`${platform} URL`}
                             {...register(`urls.${platform}`, { required: `${platform} URL is required` })}
                           />
